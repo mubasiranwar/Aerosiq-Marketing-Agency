@@ -1,16 +1,45 @@
-# React + Vite
+# Aerosiq Marketing Agency - Official Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, fast, and fully responsive website for **Aerosiq Marketing Agency**. Built with React and Vite, this project features a modular architecture, smooth scrolling, and a premium dark-mode design with neon accents.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React + Vite:** Lightning-fast development and optimized production builds.
+- **Modular Components:** Easy to maintain and scale.
+- **Central Data Configuration:** Update services, social links, and contact info from a single file.
+- **Fully Responsive:** Looks perfect on mobile, tablet, and desktop.
+- **SEO Optimized:** Includes Meta tags, Open Graph tags, and semantic HTML.
+- **Floating WhatsApp Button:** Fixed to the bottom right for instant client communication.
+- **Interactive UI:** Sticky image scrolling in the services section and hover effects.
 
-## React Compiler
+## 📁 Folder Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```text
+aerosiq-website/
+│
+├── index.html                  # Main HTML file (SEO meta tags & fonts)
+├── package.json                # Project dependencies and scripts
+├── vite.config.js              # Vite configuration
+├── README.md                   # Project documentation
+│
+└── src/
+    ├── main.jsx                # React entry point (imports global CSS)
+    ├── App.jsx                 # Main layout assembling all components
+    │
+    ├── assets/                 # Store local images/icons here
+    │
+    ├── styles/
+    │   └── global.css          # All the custom CSS styling
+    │
+    ├── data/
+    │   └── siteData.js         # ⭐ CENTRAL CONFIG: Edit links, numbers & services here
+    │
+    └── components/
+        ├── Navbar.jsx
+        ├── Hero.jsx
+        ├── Stats.jsx
+        ├── Services.jsx
+        ├── About.jsx
+        ├── Contact.jsx
+        ├── Footer.jsx
+        └── FloatingWhatsApp.jsx
