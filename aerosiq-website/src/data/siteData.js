@@ -2,8 +2,8 @@
 
 export const siteConfig = {
   name: "Aerosiq",
-  phone: "+92 322 5183271",
-  whatsappRaw: "923225183271",
+  phone: "+92 335 8019855",
+  whatsappRaw: "3358019855",
   email: "aerosiqmarketing@gmail.com",
   socials: {
     instagram: "https://www.instagram.com/aerosiqmarketingagency",
