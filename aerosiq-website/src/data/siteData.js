@@ -54,5 +54,19 @@ export const servicesData = [
     title: "Auto & Motorcycle Showrooms",
     desc: "High-octane video content, vehicle launch campaigns, and qualified test-drive lead generation to move inventory fast.",
     tags: ["Vehicle Launches", "Test-Drive Leads", "Retargeting Ads", "Showroom Promos"]
+  },
+    {
+    id: "08",
+    title: "Beauty & Aesthetics",
+    desc: "Showcase your expertise with high-quality visual content, targeted local ads, and reputation management to attract new clients and fill your booking calendar.",
+    tags: ["Before & After Visuals", "Local Ads", "Booking Integration", "Review Management"]
+  },
+
+  {
+    id: "09",
+    title: "Hair Salons",
+    desc: "Stylish social media campaigns, influencer partnerships, and local SEO to make your salon the go-to destination in your area.",
+    tags: ["Social Media", "Influencer Partnerships", "Stylist Spotlights", "Local SEO"]
   }
+  
 ];
