@@ -1,66 +1,100 @@
-// src/components/Hero.jsx
 import { motion } from 'framer-motion';
 
 export default function Hero() {
-  // Animation variants for the graph bars
-  const barVariants = {
-    hidden: { height: 0 },
-    visible: (customHeight) => ({
-      height: customHeight,
-      transition: { duration: 1, ease: "easeOut", delay: 0.5 }
-    })
+  // Animation for the text
+  const textVariants = {
+    hidden: { opacity: 0, y: 30, filter: "blur(10px)" },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      filter: "blur(0px)",
+      transition: { duration: 0.8, ease: "easeOut", staggerChildren: 0.1 } 
+    }
   };
 
   return (
     <section id="home" className="hero container">
       <div className="hero-grid">
-        {/* Left Text - Slides in from left */}
+        
+        {/* Left Side - Text Animations */}
         <motion.div 
           className="hero-text"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          variants={textVariants}
+          initial="hidden"
+          animate="visible"
         >
-          <h1>We Build <br /><span className="serif-italic text-accent">Brands</span> that<br />Stand Out</h1>
-          <p>Easily connect your SEO-optimized content to your marketing efforts — helping you stay consistent, save time, and grow faster across all digital platforms.</p>
-          <a href="#services" className="btn">Explore Services <div className="btn-icon">↗</div></a>
+          <motion.h1 variants={textVariants}>
+            We Build <br />
+            <span className="shimmer-text">Brands</span> that<br />
+            Stand Out
+          </motion.h1>
+          <motion.p variants={textVariants}>
+            Easily connect your SEO-optimized content to your marketing efforts — helping you stay consistent, save time, and grow faster across all digital platforms.
+          </motion.p>
+          <motion.a 
+            href="#services" 
+            className="btn"
+            variants={textVariants}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Explore Services <div className="btn-icon">↗</div>
+          </motion.a>
         </motion.div>
         
-        {/* Right Graph - Slides in from right */}
+        {/* Right Side - Graph Animation */}
         <motion.div 
           className="hero-graph-container"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          initial={{ opacity: 0, x: 50, rotateY: -15 }}
+          animate={{ opacity: 1, x: 0, rotateY: 0 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+          whileHover={{ scale: 1.02, rotateY: 5, boxShadow: "0 20px 40px rgba(212, 255, 0, 0.1)" }}
         >
           <div className="graph-card">
             <div className="graph-top">
               <span className="graph-title">Campaign growth</span>
-              <span className="graph-badge">+400% ROI</span>
+              <motion.span 
+                className="graph-badge"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ type: "spring", stiffness: 300, delay: 1 }}
+              >
+                +400% ROI
+              </motion.span>
             </div>
             
+            {/* The Bars - Now controlled entirely by CSS for the continuous loop */}
             <div className="graph-bars">
-              <motion.div className="bar" custom="40px" variants={barVariants} initial="hidden" animate="visible"></motion.div>
-              <motion.div className="bar" custom="80px" variants={barVariants} initial="hidden" animate="visible"></motion.div>
-              <motion.div className="bar" custom="100px" variants={barVariants} initial="hidden" animate="visible"></motion.div>
-              <motion.div className="bar" custom="130px" variants={barVariants} initial="hidden" animate="visible"></motion.div>
-              <motion.div className="bar bar-accent" custom="200px" variants={barVariants} initial="hidden" animate="visible"></motion.div>
+              <div className="bar"></div>
+              <div className="bar"></div>
+              <div className="bar"></div>
+              <div className="bar"></div>
+              <div className="bar bar-accent"></div>
             </div>
             
-            <div className="graph-bottom">Strategy → Content → Convert</div>
+            <motion.div 
+              className="graph-bottom"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.2 }}
+            >
+              Strategy → Content → Convert
+            </motion.div>
             
-            {/* Pop in experience circle */}
+            {/* The 3+ Circle springs in */}
             <motion.div 
               className="graph-experience-circle"
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.8 }}
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ type: "spring", stiffness: 200, damping: 15, delay: 1.2 }}
+              whileHover={{ scale: 1.1, rotate: 5 }}
             >
               <h3>3+</h3>
               <p>years of<br />experience</p>
             </motion.div>
           </div>
         </motion.div>
+
       </div>
     </section>
   );

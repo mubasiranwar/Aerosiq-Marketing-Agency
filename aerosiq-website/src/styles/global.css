@@ -151,9 +151,19 @@ nav a:hover, nav a.active { color: var(--text-main); }
 /* --- GRAPH VISUAL --- */
 .hero-graph-container { display: flex; justify-content: center; align-items: center; padding: 20px 0; }
 .graph-card {
-    background: #161616; border: 1px solid #2a2a2a; border-radius: 30px;
-    width: 100%; max-width: 500px; height: 380px; padding: 40px; position: relative;
-    display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    background: #161616;
+    border: 1px solid #2a2a2a;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 500px;
+    height: 380px;
+    padding: 40px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    transition: all 0.4s ease; /* ADD THIS LINE */
 }
 .graph-top { display: flex; justify-content: space-between; align-items: center; }
 .graph-title { color: var(--text-muted); font-size: 15px; font-weight: 500; }
@@ -380,4 +390,80 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 0 30px; }
     }
     
     .btn { width: 100%; justify-content: center; }
+}
+
+
+/* --- CONTINUOUS TEXT SHIMMER ANIMATION --- */
+@keyframes textShimmer {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+
+.shimmer-text {
+    /* A gradient using your neon accent, white, and the accent again */
+    background: linear-gradient(
+        90deg, 
+        var(--accent) 0%, 
+        var(--accent) 20%, 
+        #ffffff 50%, 
+        var(--accent) 80%, 
+        var(--accent) 100%
+    );
+    background-size: 200% auto;
+    
+    /* Clip the background to the text */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    
+    /* Run the animation continuously */
+    animation: textShimmer 3s linear infinite;
+    
+    /* Ensure it stays italic */
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 600;
+}
+
+
+/* --- CONTINUOUS GRAPH BAR PULSE ANIMATION --- */
+
+@keyframes barPulse {
+    0% {
+        background-color: #262626; /* Dim original color */
+        box-shadow: none;
+        transform: scaleY(1);
+    }
+    20% {
+        background-color: var(--accent); /* Flash bright neon */
+        box-shadow: 0 0 20px rgba(212, 255, 0, 0.6); /* Glow */
+        transform: scaleY(1.05); /* Slight stretch effect */
+    }
+    40%, 100% {
+        background-color: #262626; /* Go back to dim */
+        box-shadow: none;
+        transform: scaleY(1);
+    }
+}
+
+/* Apply to all bars */
+.bar {
+    /* 3.5 seconds total loop, infinite */
+    animation: barPulse 3.5s infinite ease-in-out;
+    transition: background-color 0.3s ease;
+}
+
+/* Stagger the delays so the brightness travels left to right */
+.bar:nth-child(1) { animation-delay: 0s; }
+.bar:nth-child(2) { animation-delay: 0.4s; }
+.bar:nth-child(3) { animation-delay: 0.8s; }
+.bar:nth-child(4) { animation-delay: 1.2s; }
+
+/* Make the accent bar animate exactly like the others, no permanent brightness */
+.bar.bar-accent {
+    background-color: #262626; /* Start dim */
+    animation: barPulse 3.5s infinite ease-in-out;
+    animation-delay: 1.6s; /* Ends the sequence */
 }
