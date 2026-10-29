@@ -254,75 +254,119 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 0 30px; }
 .footer-links a:hover { color: var(--accent); }
 .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 30px; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 14px; }
 
-/* --- RESPONSIVE DESIGN --- */
+/* =========================================
+   RESPONSIVE DESIGN (TABLET & MOBILE)
+   ========================================= */
+
 @media (max-width: 992px) {
-    .hero-grid, .about-grid, .contact-section { grid-template-columns: 1fr; }
-    .hero h1 { font-size: 3rem; }
-    .hero p { margin: 0 auto 30px; text-align: center; }
+    /* General Layout */
+    .hero-grid, 
+    .about-grid, 
+    .contact-section,
+    .services-grid { 
+        grid-template-columns: 1fr; 
+        gap: 40px;
+    }
+
+    /* Hero Section */
+    .hero { padding-top: 140px; }
+    .hero h1 { font-size: 3.5rem; }
+    .hero p { margin: 0 auto 30px; text-align: center; max-width: 100%; }
     .hero-text { text-align: center; }
-    .stats-grid { grid-template-columns: 1fr; }
-    .stat-box { border-left: none; border-top: 1px solid var(--border-color); padding-top: 30px; }
+    .hero-graph-container { margin-top: 30px; }
+
+    /* Stats */
+    .stats-grid { grid-template-columns: 1fr; gap: 20px; }
+    .stat-box { border-left: none; border-top: 1px solid var(--border-color); padding-top: 30px; text-align: center; }
     .stat-box:first-child { border-top: none; padding-top: 0; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-    .contact-section { padding: 40px; }
-    .services-grid { grid-template-columns: 1fr; }
-    .services-visual-wrapper { display: none; }
-    .service-title { font-size: 1.6rem; }
-    .service-item-header { flex-direction: column; gap: 5px; }
+
+    /* Services */
+    .services-header h2 { font-size: 2.5rem; }
+    .service-item { padding: 30px 0; }
+    .service-title { font-size: 1.8rem; }
+    .service-item-header { flex-direction: column; gap: 5px; align-items: flex-start; }
+    .services-visual-wrapper { display: none; } /* Hide sticky image on mobile to save space */
+
+    /* About Section */
+    .about-content { text-align: center; }
+    .about-content p { font-size: 1rem; }
+    .about-image { height: 400px; }
+    .about-badge { display: none; } /* Hide the floating badge on tablet to prevent overlap */
+
+    /* Contact Section */
+    .contact-section { padding: 40px 20px; border-radius: 30px; }
+    .contact-content { text-align: center; }
+    .contact-content h2 { font-size: 2.5rem; }
+    .contact-info { align-items: center; }
+    .contact-form { padding: 30px 20px; }
+
+    /* Footer */
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
 }
 
 @media (max-width: 768px) {
-    .nav-container { flex-direction: column; height: auto; padding: 20px 0; gap: 20px; }
-    nav ul { flex-wrap: wrap; justify-content: center; gap: 20px; }
-    .hero { padding-top: 250px; }
-    .footer-grid { grid-template-columns: 1fr; }
+    /* Navbar */
+    .nav-container { flex-direction: column; height: auto; padding: 20px 0; gap: 15px; }
+    nav ul { flex-wrap: wrap; justify-content: center; gap: 15px; }
+    
+    /* Typography & Spacing */
+    .section-padding { padding: 60px 0; }
+    .container { padding: 0 15px; }
+    
+    /* Hero */
+    .hero { padding-top: 200px; }
+    .hero h1 { font-size: 2.8rem; }
+    
+    /* Graph Card */
+    .graph-card { padding: 20px; height: 300px; }
+    .bar { width: 35px; }
+    .bar.bar-accent { height: 140px; }
+    .graph-experience-circle { width: 100px; height: 100px; bottom: -15px; right: -5px; }
+    .graph-experience-circle h3 { font-size: 1.8rem; }
+    .graph-experience-circle p { font-size: 9px; }
+    .graph-bars { height: 100px; }
+
+    /* Services */
+    .service-features { justify-content: center; }
+    .service-features span { font-size: 11px; padding: 4px 12px; }
+
+    /* Contact Form Fix - Full Width & Nice Spacing */
+    .contact-section { padding: 30px 15px; }
+    .contact-content h2 { font-size: 2rem; }
+    .contact-form { 
+        padding: 25px 15px; 
+        width: 100%; 
+        max-width: 100%;
+    }
+    .form-group input, 
+    .form-group textarea { 
+        padding: 12px 15px; 
+        font-size: 14px;
+    }
+
+    /* Footer */
+    .footer-grid { grid-template-columns: 1fr; text-align: center; }
+    .footer-brand { display: flex; flex-direction: column; align-items: center; }
+    .footer-links { align-items: center; }
     .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+
+    /* Floating WhatsApp */
     .floating-whatsapp { bottom: 20px; right: 20px; width: 55px; height: 55px; }
     .floating-whatsapp svg { width: 28px; height: 28px; }
-    .graph-card { padding: 25px; height: 320px; margin: 0 auto; }
-    .bar { width: 40px; }
-    .bar.bar-accent { height: 160px; }
-    .graph-experience-circle { width: 110px; height: 110px; bottom: -20px; right: -10px; }
-    .graph-experience-circle h3 { font-size: 2rem; }
-    .graph-experience-circle p { font-size: 10px; }
-    .graph-bars { height: 120px; }
 }
 
-/* --- SMOOTH HOVER EFFECTS --- */
-.service-item {
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.service-item:hover {
-    transform: translateX(10px);
-    background: rgba(255, 255, 255, 0.02);
-}
-
-.visual-box img {
-    transition: transform 0.7s ease;
-}
-
-.visual-box:hover img {
-    transform: scale(1.05);
-}
-
-.btn {
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.btn:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 10px 20px rgba(212, 255, 0, 0.15);
-}
-
-.contact-item {
-    transition: all 0.3s ease;
-}
-
-.contact-item:hover {
-    transform: translateX(5px);
-    color: #000;
-    background: rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
-    padding-left: 10px;
+@media (max-width: 480px) {
+    /* Extra small phones */
+    .hero h1 { font-size: 2.2rem; }
+    .section-title { font-size: 2rem; }
+    .services-header h2 { font-size: 2rem; }
+    .contact-content h2 { font-size: 1.8rem; }
+    
+    /* Ensure form fields are easy to tap */
+    .form-group input, 
+    .form-group textarea { 
+        font-size: 16px; /* Prevents iOS from zooming in on input focus */
+    }
+    
+    .btn { width: 100%; justify-content: center; }
 }
