@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { FaWhatsapp, FaInstagram, FaFacebook, FaTiktok } from 'react-icons/fa';
 import { siteConfig } from '../data/siteData';
 import emailjs from '@emailjs/browser';
+import FadeIn from './FadeIn';
 
 export default function Contact() {
   const form = useRef();
@@ -49,6 +50,7 @@ export default function Contact() {
       <div className="contact-section">
         
         {/* Left Side - Contact Info */}
+        <FadeIn direction="right">
         <div className="contact-content">
           <div style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', marginBottom: '10px', letterSpacing: '1px' }}>• Get in touch</div>
           <h2>Have a Project <br />in Mind? <br /><span className="serif-italic">— Let's Talk.</span></h2>
@@ -69,8 +71,10 @@ export default function Contact() {
             </a>
           </div>
         </div>
+        </FadeIn>
         
         {/* Right Side - Form */}
+        <FadeIn direction="left">
         <div className="contact-form">
           <h3>Schedule a Free Consultation</h3>
           
@@ -111,6 +115,7 @@ export default function Contact() {
             </button>
           </form>
         </div>
+        </FadeIn>
         
       </div>
     </section>
