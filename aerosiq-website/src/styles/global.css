@@ -117,9 +117,9 @@ nav a:hover, nav a.active { color: var(--text-main); }
 .social-icon:hover { color: var(--accent); }
 
 /* --- HERO SECTION --- */
-.hero { padding-top: 160px; padding-bottom: 80px; position: relative; }
+.hero { padding-top: 260px; padding-bottom: 80px; position: relative; }
 .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-.hero h1 { font-size: 4.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 30px; }
+.hero h1 { font-size: 2.8rem; font-weight: 800; line-height: 1.1; margin-bottom: 30px; }
 .hero p { color: var(--text-muted); font-size: 1.1rem; max-width: 80%; margin-bottom: 40px; }
 
 /* --- GRAPH VISUAL --- */
