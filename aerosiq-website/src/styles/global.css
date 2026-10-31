@@ -467,3 +467,118 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 0 30px; }
     animation: barPulse 3.5s infinite ease-in-out;
     animation-delay: 1.6s; /* Ends the sequence */
 }
+
+/* --- LEADERSHIP SECTION --- */
+.leadership-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+/* --- LEADERSHIP MESSAGE STYLING --- */
+.leader-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    transition: all 0.4s ease;
+}
+
+/* Make the card glow when hovered */
+.leader-card:hover {
+    border-color: rgba(212, 255, 0, 0.4);
+    box-shadow: 0 10px 40px rgba(212, 255, 0, 0.05);
+    transform: translateY(-5px);
+}
+
+.leader-message p {
+    /* Premium Serif Font for quotes */
+    font-family: 'Playfair Display', serif; 
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #e0e0e0;
+    font-style: italic;
+    
+    /* The glowing neon border */
+    border-left: 3px solid var(--accent);
+    padding-left: 24px;
+    
+    /* Glow effect on the border */
+    box-shadow: -10px 0 20px -10px rgba(212, 255, 0, 0.3);
+    
+    /* Force word wrapping for the span elements */
+    word-wrap: break-word;
+}
+
+/* Ensure the spans from Framer Motion stay inline */
+.leader-message p span {
+    display: inline-block !important;
+}
+.leader-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.leader-img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent);
+    padding: 2px;
+}
+
+.leader-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.leader-role {
+    font-size: 13px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.leader-message p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    border-left: 2px solid var(--accent);
+    padding-left: 20px;
+    font-style: italic;
+}
+
+/* Make it responsive for mobile */
+@media (max-width: 992px) {
+    .leadership-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .leader-card { padding: 30px 20px; }
+    .leader-name { font-size: 1.3rem; }
+    .leader-img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover; 
+    object-position: top center; 
+    border: 2px solid var(--accent);
+    padding: 2px;
+    /* Removed the global scale from here so Salman stays perfect */
+}
+/* Specific adjustment for Naseer's image to match Salman's frame */
+.naseer-img {
+    transform: scale(0.65); /* Zooms OUT so his head is smaller in the frame */
+    object-position: center 5%; /* Adjusts the vertical position to show more shoulders */
+}
+    .leader-message p { font-size: 0.95rem; padding-left: 15px; }
+}

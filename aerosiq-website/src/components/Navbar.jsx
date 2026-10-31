@@ -13,11 +13,14 @@ export default function Navbar() {
             <li><a href="#home" className="active">Home</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#about">About Us</a></li>
+            <li><a href="#leadership">Leadership</a></li>
             <li><a href="#contact">Contact</a></li>
+            
+            
           </ul>
         </nav>
         <div className="nav-cta">
-         
+
           <a href="#contact" className="btn">Let's Talk <div className="btn-icon">↗</div></a>
         </div>
       </div>
