@@ -67,6 +67,19 @@ export const servicesData = [
     title: "Hair Salons",
     desc: "Stylish social media campaigns, influencer partnerships, and local SEO to make your salon the go-to destination in your area.",
     tags: ["Social Media", "Influencer Partnerships", "Stylist Spotlights", "Local SEO"]
+  },
+
+    {
+    id: "10",
+    title: "Shopify (Local & International)",
+    desc: "Complete Shopify store setup, product uploading, payment gateway integration, and global shipping configuration to sell your products worldwide.",
+    tags: ["Store Setup", "Product Upload", "Payment Gateways", "Global Shipping"]
+  },
+  {
+    id: "11",
+    title: "Web Customization Service",
+    desc: "Custom coding and design tweaks to your existing website. From layout adjustments to integrating new features, we make your site function exactly as you need.",
+    tags: ["Custom Coding", "Layout Tweaks", "Feature Integration", "Bug Fixes"]
   }
   
 ];

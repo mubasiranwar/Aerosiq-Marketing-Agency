@@ -582,3 +582,89 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 0 30px; }
 }
     .leader-message p { font-size: 0.95rem; padding-left: 15px; }
 }
+
+
+
+/* --- SERVICES PREMIUM ANIMATIONS --- */
+
+/* 1. The Continuous Scanner Line */
+.services-list-wrapper {
+    position: relative;
+}
+
+.services-list-wrapper::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+    animation: scanLine 4s ease-in-out infinite;
+    z-index: 10;
+    opacity: 0.5;
+}
+
+@keyframes scanLine {
+    0% { top: -100px; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+/* 2. Premium Service Item Hover Effect */
+.service-item {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    padding-left: 20px; /* Create space for the hover line */
+    border-radius: 12px; /* Soft corners on hover */
+}
+
+/* The glowing line that appears on the left on hover */
+.service-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--accent);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+    border-radius: 3px;
+}
+
+.service-item:hover {
+    background: rgba(255, 255, 255, 0.02);
+    transform: translateX(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.service-item:hover::before {
+    transform: scaleY(1);
+}
+
+/* 3. Title Glow and Slide */
+.service-title {
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.service-item:hover .service-title {
+    color: var(--accent);
+    transform: translateX(5px);
+    text-shadow: 0 0 15px rgba(212, 255, 0, 0.3);
+}
+
+/* 4. Tags Pop Up Effect */
+.service-features span {
+    transition: all 0.3s ease;
+}
+
+.service-item:hover .service-features span {
+    background: rgba(212, 255, 0, 0.1);
+    border-color: rgba(212, 255, 0, 0.4);
+    color: #fff;
+    transform: translateY(-2px);
+}
